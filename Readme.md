@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг» [![Build status][travis-image]][travis-url]
 
 * Студент: [Hanna Herasimava](https://up.htmlacademy.ru/javascript/20/user/1111561).
-* Наставник: `Неизвестно`.
+* Наставник: `Пока без наставника`.
 
 ---
 
