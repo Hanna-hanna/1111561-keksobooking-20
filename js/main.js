@@ -23,48 +23,42 @@ var PHOTOS_OFFER = ['http://o0.github.io/assets/images/tokyo/hotel1.jpg', 'http:
 var LOCATION_X = [134, 223, 391, 202, 384, 183, 673, 594];
 var LOCATION_Y = [34, 23, 191, 202, 384, 183, 273, 494];
 
-var randomData = function(arrayName) {
+var randomData = function (arrayName) {
   return Math.floor(Math.random() * arrayName.length);
 };
 
-var orderData = function(arrayName) {
-  for (var i = 0; i < arrayName.length; i++) {
-    return arrayName[i];
+var createPin = function (avatar, title, address, price, type, rooms, guests, checkin, checkout, features, description, photos, x, y, randomFunc, orderData) {
+
+var newOffer = {
+  author: {
+    avatar: avatar[randomFunc(avatar)]
+  },
+  offer: {
+    title: title[randomFunc(title)],
+    address: address[randomFunc(address)],
+    price: price[randomFunc(price)],
+    type: type[randomFunc(type)],
+    rooms: rooms[randomFunc(rooms)],
+    guests: guests[randomFunc(guests)],
+    checkin: checkin[randomFunc(checkin)],
+    checkout: checkout[randomFunc(checkout)],
+    features: features[randomFunc(features)],
+    description: description[randomFunc(description)],
+    photos: photos[randomFunc(photos)]
+  },
+  location: {
+    x: x[randomFunc(x)],
+     y: y[randomFunc(y)]
   }
 };
 
-var createPin = function(avatar, title, address, price, type, rooms, guests, checkin, checkout, features, description, photos, x, y, randomFunc, orderData) {
+return newOffer;
+};
 
-  var newOffer = {
-      author: {
-          avatar: avatar[randomFunc(avatar)]
-      },
-      offer: {
-          title: title[randomFunc(title)],
-          address: address[randomFunc(address)],
-          price: price[randomFunc(price)],
-          type: type[randomFunc(type)],
-          rooms: rooms[randomFunc(rooms)],
-          guests: guests[randomFunc(guests)],
-          checkin: checkin[randomFunc(checkin)],
-          checkout: checkout[randomFunc(checkout)],
-          features: features[randomFunc(features)],
-          description: description[randomFunc(description)],
-          photos: photos[randomFunc(photos)]
-      },
-      location: {
-          x: x[randomFunc(x)],
-          y: y[randomFunc(y)]
-      }
-    };
-
-  return newOffer;
-}
-
-var createMapPinsArray = function(pinlength, avatar, title, address, price, type, rooms, guests, checkin, checkout, features, description, photos, x, y, randomFunc) {
+var createMapPinsArray = function (pinlength, avatar, title, address, price, type, rooms, guests, checkin, checkout, features, description, photos, x, y, randomFunc) {
   for (var i = 1, arr = []; i <= pinlength; i++) {
     arr.push(createPin(avatar, title, address, price, type, rooms, guests, checkin, checkout, features, description, photos, x, y, randomFunc));
-  }
+  };
   return arr;
 }
 
@@ -82,4 +76,4 @@ for (var i = 0; i < mapPins.length; i++) {
   fragmentMapPinBlock.appendChild(pinElement);
 }
 
- mapPinBlock.appendChild(fragmentMapPinBlock);
+mapPinBlock.appendChild(fragmentMapPinBlock);
