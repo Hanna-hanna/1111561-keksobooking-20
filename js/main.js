@@ -27,30 +27,30 @@ var randomData = function (arrayName) {
   return Math.floor(Math.random() * arrayName.length);
 };
 
-var createPin = function (avatar, title, address, price, type, rooms, guests, checkin, checkout, features, description, photos, x, y, randomFunc, orderData) {
+var createPin = function (avatar, title, address, price, type, rooms, guests, checkin, checkout, features, description, photos, x, y, randomFunc) {
 
-var newOffer = {
-  author: {
-    avatar: avatar[randomFunc(avatar)]
-  },
-  offer: {
-    title: title[randomFunc(title)],
-    address: address[randomFunc(address)],
-    price: price[randomFunc(price)],
-    type: type[randomFunc(type)],
-    rooms: rooms[randomFunc(rooms)],
-    guests: guests[randomFunc(guests)],
-    checkin: checkin[randomFunc(checkin)],
-    checkout: checkout[randomFunc(checkout)],
-    features: features[randomFunc(features)],
-    description: description[randomFunc(description)],
-    photos: photos[randomFunc(photos)]
-  },
-  location: {
-    x: x[randomFunc(x)],
-     y: y[randomFunc(y)]
-  }
-};
+  var newOffer = {
+    author: {
+      avatar: avatar[randomFunc(avatar)]
+    },
+    offer: {
+      title: title[randomFunc(title)],
+      address: address[randomFunc(address)],
+      price: price[randomFunc(price)],
+      type: type[randomFunc(type)],
+      rooms: rooms[randomFunc(rooms)],
+      guests: guests[randomFunc(guests)],
+      checkin: checkin[randomFunc(checkin)],
+      checkout: checkout[randomFunc(checkout)],
+      features: features[randomFunc(features)],
+      description: description[randomFunc(description)],
+      photos: photos[randomFunc(photos)]
+    },
+    location: {
+      x: x[randomFunc(x)],
+       y: y[randomFunc(y)]
+    }
+  };
 
 return newOffer;
 };
@@ -58,9 +58,9 @@ return newOffer;
 var createMapPinsArray = function (pinlength, avatar, title, address, price, type, rooms, guests, checkin, checkout, features, description, photos, x, y, randomFunc) {
   for (var i = 1, arr = []; i <= pinlength; i++) {
     arr.push(createPin(avatar, title, address, price, type, rooms, guests, checkin, checkout, features, description, photos, x, y, randomFunc));
-  };
+  }
   return arr;
-}
+};
 
 var mapPins = createMapPinsArray(PINS_QUANTITY, AVATAR, TITLE_OFFER, ADDRESS_OFFER, PRICE_OFFER, TYPE_OFFER, ROOMS_OFFER, GUESTS_OFFER, CHECKIN, CHECKOUT, FEATURES, DESCRIPTION_OFFER, PHOTOS_OFFER, LOCATION_X, LOCATION_Y, randomData);
 
