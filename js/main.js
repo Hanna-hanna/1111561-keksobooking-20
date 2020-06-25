@@ -48,11 +48,11 @@ var createPin = function (avatar, title, address, price, type, rooms, guests, ch
     },
     location: {
       x: x[randomFunc(x)],
-       y: y[randomFunc(y)]
+      y: y[randomFunc(y)]
     }
   };
 
-return newOffer;
+  return newOffer;
 };
 
 var createMapPinsArray = function (pinlength, avatar, title, address, price, type, rooms, guests, checkin, checkout, features, description, photos, x, y, randomFunc) {
