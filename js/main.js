@@ -27,7 +27,13 @@ var randomData = function(arrayName) {
   return Math.floor(Math.random() * arrayName.length);
 };
 
-var createPin = function(avatar, title, address, price, type, rooms, guests, checkin, checkout, features, description, photos, x, y, randomFunc) {
+var orderData = function(arrayName) {
+  for (var i = 0; i < arrayName.length; i++) {
+    return arrayName[i];
+  }
+};
+
+var createPin = function(avatar, title, address, price, type, rooms, guests, checkin, checkout, features, description, photos, x, y, randomFunc, orderData) {
 
   var newOffer = {
       author: {
@@ -64,6 +70,8 @@ var createMapPinsArray = function(pinlength, avatar, title, address, price, type
 
 var mapPins = createMapPinsArray(PINS_QUANTITY, AVATAR, TITLE_OFFER, ADDRESS_OFFER, PRICE_OFFER, TYPE_OFFER, ROOMS_OFFER, GUESTS_OFFER, CHECKIN, CHECKOUT, FEATURES, DESCRIPTION_OFFER, PHOTOS_OFFER, LOCATION_X, LOCATION_Y, randomData);
 
+var fragmentMapPinBlock = document.createDocumentFragment();
+
 for (var i = 0; i < mapPins.length; i++) {
   var pinElement = mapPinTemplate.cloneNode(true);
   pinElement.querySelector('img').alt = mapPins[i].offer.title;
@@ -71,7 +79,7 @@ for (var i = 0; i < mapPins.length; i++) {
   pinElement.style.left = mapPins[i].location.x + 'px';
   pinElement.style.top = mapPins[i].location.y + 'px';
 
-  mapPinBlock.appendChild(pinElement);
+  fragmentMapPinBlock.appendChild(pinElement);
 }
 
-
+ mapPinBlock.appendChild(fragmentMapPinBlock);
